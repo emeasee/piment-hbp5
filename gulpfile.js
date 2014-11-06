@@ -11,6 +11,8 @@ gulp.task('js', function () {
       .pipe(gulp.dest('build'));
 });
 
+//TODO: add html file handling for the build
+
 gulp.task('css', function() {
     return gulp.src('css/app.css')
         .pipe(plugins.autoprefixer({
