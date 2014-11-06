@@ -1,25 +1,24 @@
 var gulp = require('gulp'),
     gulpLoadPlugins = require('gulp-load-plugins'),
     plugins = gulpLoadPlugins(),
-    browserSync = require('browser-sync');
+    browserSync = require('browser-sync'),
+    del = require('del');
 
 
-gulp.task('js', function () {
-   return gulp.src('js/*.js')
-      .pipe(plugins.uglify())
-      .pipe(plugins.concat('app.js'))
-      .pipe(gulp.dest('build'));
+gulp.task('clean', function(cb){
+    del([
+        'build/**/*'
+    ], cb);
 });
 
-//TODO: add html file handling for the build
-
-gulp.task('css', function() {
-    return gulp.src('css/app.css')
-        .pipe(plugins.autoprefixer({
-            browsers: ['last 2 versions'],
-            cascade: false
+gulp.task('usemin', function () {
+    return gulp.src('*.html')
+        .pipe(plugins.usemin({
+            css: [plugins.autoprefixer({browsers:['last 2 versions'], cascade: false}), plugins.minifyCss(), 'concat'],
+            //html: [plugins.minifyHtml({empty: true})],
+            js: [plugins.stripDebug(), plugins.uglify(), plugins.rev(), 'concat']
         }))
-        .pipe(gulp.dest('build'));
+        .pipe(gulp.dest('build/'));
 });
 
 gulp.task('browser-sync', function () {
@@ -37,4 +36,6 @@ gulp.task('browser-sync', function () {
    });
 });
 
-gulp.task('build', ['js', 'css']);
+gulp.task('build', ['clean'], function(){
+    gulp.start('usemin');
+});
