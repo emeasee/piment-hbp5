@@ -1,0 +1,23 @@
+{
+  "name": "hbp5-piment",
+  "version": "0.0.1",
+  "description": "Simple HTML5 template for Piment sites",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/emeasee/piment-hbp5.git"
+  },
+  "author": "Mac Oosthuizen",
+  "bugs": {
+    "url": "https://github.com/emeasee/piment-hbp5/issues"
+  },
+  "homepage": "https://github.com/emeasee/piment-hbp5",
+  "dependencies": {},
+  "devDependencies": {
+    "browser-sync": "^1.6.3",
+    "gulp": "^3.8.10",
+    "gulp-autoprefixer": "^1.0.1",
+    "gulp-concat": "^2.4.1",
+    "gulp-load-plugins": "^0.7.1",
+    "gulp-uglify": "^1.0.1"
+  }
+}
