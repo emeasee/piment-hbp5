@@ -35,7 +35,7 @@ gulp.task('browser-sync', function () {
       }
    });
 });
-// TODO: Add a deploy to gh-pages option for the short term. To serve before cloud setup
+//TODO: Add a deploy to gh-pages option for the short term. To serve before cloud setup [Issue: https://github.com/emeasee/piment-hbp5/issues/2]
 gulp.task('build', ['clean'], function(){
     gulp.start('usemin');
 });
