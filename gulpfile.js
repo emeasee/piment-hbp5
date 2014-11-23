@@ -35,7 +35,7 @@ gulp.task('browser-sync', function () {
       }
    });
 });
-// TODO: Add a deploy to gh-pages option for the short term
+// TODO: Add a deploy to gh-pages option for the short term. To serve before cloud setup
 gulp.task('build', ['clean'], function(){
     gulp.start('usemin');
 });
