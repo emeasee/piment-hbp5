@@ -35,7 +35,7 @@ gulp.task('browser-sync', function () {
       }
    });
 });
-
+// TODO: Add a deploy to gh-pages option for the short term
 gulp.task('build', ['clean'], function(){
     gulp.start('usemin');
 });
